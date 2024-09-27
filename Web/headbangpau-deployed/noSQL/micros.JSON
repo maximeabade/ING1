@@ -1,0 +1,42 @@
+[
+    {
+        "id": "M1",
+        "Name": "SENNHEISER E385 S",
+        "Image": "./img/micros/e385s.png",
+        "Details": "40Hz-16kHz, -59dBV/Pa, 330g, 2.0m cable",
+        "Price": "92",
+        "Stock": "5"
+    },
+    {
+        "id": "M2",
+        "Name": "R77",
+        "Image": "./img/micros/r77.png",
+        "Details": "20Hz-18kHz, -55dBV/Pa, 860g, 1.5m cable",
+        "Price": "290",
+        "Stock": "5"
+    },
+    {
+        "id": "M3",
+        "Name": "Shure S55",
+        "Image": "./img/micros/shureS55.png",
+        "Details": "50Hz-15kHz, -58dBV/Pa, 624g, 3.5m cable",
+        "Price": "185",
+        "Stock": "5"
+    },
+    {
+        "id": "M4",
+        "Name": "Slate Digital ML-1",
+        "Image": "./img/micros/slateDigital.png",
+        "Details": "Condensateur large membrane, 20Hz-20kHz, -38dBV/Pa, 1000g, 1.5m cable",
+        "Price": "800",
+        "Stock": "5"
+    },
+    {
+        "id": "M5",
+        "Name": "Rode NT1-A",
+        "Image": "./img/micros/rodeNT1.png",
+        "Details": "Condenateur large membrane, 20Hz-20kHz, -38dBV/Pa, 1.5m cable",
+        "Price": "166",
+        "Stock": "5"
+    }
+]

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="list-group">
+      {% for formation in formations %}
+        <a href="{{path('prostage_resultatRecherche_formations',{id:formation.id})}}" class="list-group-item list-group-item-action"> {{formation.nom}} ({{formation.nomCourt}}) </a>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

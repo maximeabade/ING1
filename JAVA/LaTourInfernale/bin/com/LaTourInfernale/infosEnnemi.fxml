@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="191.0" fitWidth="419.0">
+         <image>
+            <Image url="@fondEnnemi.jpg" />
+         </image>
+      </ImageView>
+      <VBox layoutX="24.0" layoutY="70.0" prefHeight="115.0" prefWidth="47.0">
+         <children>
+            <ImageView fitHeight="52.0" fitWidth="42.0">
+               <image>
+                  <Image url="@coeur.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="44.0">
+               <image>
+                  <Image url="@force.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <Label fx:id="typeEnnemi" layoutX="146.0" layoutY="14.0" text="Type : Guerrier" textFill="#f8f7f7">
+         <font>
+            <Font name="BerenisADFPro-Regular" size="20.0" />
+         </font>
+      </Label>
+      <HBox layoutX="71.0" layoutY="78.0" prefHeight="29.0" prefWidth="265.0">
+         <children>
+            <ProgressBar fx:id="VieProgressEnnemi" prefHeight="27.0" prefWidth="126.0" progress="0.5" style="-fx-accent: red;" />
+            <Label fx:id="vieE" alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" prefHeight="29.0" prefWidth="140.0" text="50 PV" textFill="WHITE">
+               <font>
+                  <Font name="BerenisADFPro-Regular" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="75.0" layoutY="128.0" prefHeight="29.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="eForce" alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="120.0" text="Force" textFill="WHITE">
+               <font>
+                  <Font name="BerenisADFPro-Regular" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Label fx:id="itemVole" layoutX="187.0" layoutY="157.0" prefHeight="29.0" prefWidth="218.0" text="Item volé :" textFill="WHITE">
+         <font>
+            <Font name="BerenisADFPro-Regular" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

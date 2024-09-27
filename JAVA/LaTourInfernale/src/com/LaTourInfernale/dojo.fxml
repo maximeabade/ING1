@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.LaTourInfernale.ControllerDojo">
+   <children>
+      <ImageView fitHeight="408.0" fitWidth="611.0" layoutX="-11.0" layoutY="-7.0" pickOnBounds="true">
+         <image>
+            <Image url="@fondDojo.jpg" />
+         </image>
+      </ImageView>
+      <HBox layoutX="82.0" layoutY="78.0" prefHeight="293.0" prefWidth="436.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="274.0" prefWidth="211.0">
+               <children>
+                  <ImageView fitHeight="183.0" fitWidth="202.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@attack.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="bonusForce" contentDisplay="CENTER" prefHeight="29.0" prefWidth="105.0" style="-fx-wrap-text: true; -fx-background-color: green; -fx-border-width: 2; -fx-border-color: white;" text="Bonus Force + 4" textAlignment="CENTER" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="BerenisADFPro-Regular" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="102.0" style="-fx-wrap-text: true; -fx-background-color: green; -fx-border-width: 2; -fx-border-color: white;" text="Cout: 1 Pt Xp" textAlignment="CENTER" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="BerenisADFPro-Regular" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="274.0" prefWidth="211.0">
+               <children>
+                  <ImageView fitHeight="183.0" fitWidth="202.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@coeur.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="bonusVie" alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="100.0" style="-fx-wrap-text: true; -fx-background-color: green; -fx-border-width: 2; -fx-border-color: white;" text="Bonus Vie + 7" textAlignment="CENTER" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="BerenisADFPro-Regular" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="102.0" style="-fx-wrap-text: true; -fx-background-color: green; -fx-border-width: 2; -fx-border-color: white;" text="Cout: 1 Pt Xp" textAlignment="CENTER" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="BerenisADFPro-Regular" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label layoutX="235.0" layoutY="-9.0" text="Dojo" textFill="WHITE">
+         <font>
+            <Font name="BerenisADFPro-Regular" size="60.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

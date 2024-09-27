@@ -1,0 +1,103 @@
+tri par selection d un tableau
+
+FONCTION TriSélection(tab : tableau d'entiers de taille n)
+DEBUT
+    POUR i allant de 1 à n FAIRE
+        min ← i
+        POUR j allant de i+1 à n FAIRE
+        SI tab[j] < tab[min] ALORS
+            min ← j
+        FIN SI
+        FIN POUR
+        echanger(tab, i, min)
+    FIN POUR
+FIN
+
+FONCTION echanger (tab : tableau d'entiers de taille n, i, j : entier)
+VARIABLES
+    tmp : entier
+DEBUT
+    temp ← tab[i]
+    tab[i] ← tab[j]
+    tab[j] ← temp
+FIN
+
+
+
+Tri par insertion  d un tableau
+
+FONCTION TriInsertion(tab : tableau d'entiers de taille n)
+VARIABLES:
+    i, j, tmp : entiers
+DEBUT
+    POUR i DE 1 A n FAIRE
+        tmp ← tab[i]
+        j ← i
+        TANT QUE j > 0 ET tab[j-1] > tmp FAIRE
+            tab[j] ← tab[j-1]
+            j ← j-1
+        FINTANTQUE
+        tab[j] ← tmp
+    FINPOUR
+FIN
+
+Tri à bulles d'un tableau 
+FONCTION TriBullet(tab : tableau d'entiers de taille n)
+VARIABLES
+    i, j, tmp : entiers
+DEBUT
+    POUR i DE 1 A n FAIRE
+        POUR j DE 1 A n-i FAIRE
+            SI tab[j] > tab[j+1] ALORS
+                tmp ← tab[j]
+                tab[j] ← tab[j+1]
+                tab[j+1] ← tmp
+            FIN SI
+        FIN POUR
+    FIN POUR
+FIN
+
+
+Tri fusion d un tableau
+
+FONCTION TriFusion(tab : tableau d'entiers de taille n)
+VARIABLES
+    tab1, tab2 : tableau d'entiers de taille n/2
+    i, j, k : entiers
+DEBUT
+    SI n > 1 ALORS
+        POUR i DE 1 A n/2 FAIRE
+            tab1[i] ← tab[i]
+        FIN POUR
+        POUR i DE n/2+1 A n FAIRE
+            tab2[i-n/2] ← tab[i]
+        FIN POUR
+        TriFusion(tab1)
+        TriFusion(tab2)
+        i ← 1
+        j ← 1
+        k ← 1
+        TANT QUE i <= n/2 ET j <= n/2 FAIRE
+            SI tab1[i] < tab2[j] ALORS
+                tab[k] ← tab1[i]
+                i ← i+1
+            SINON
+                tab[k] ← tab2[j]
+                j ← j+1
+            FIN SI
+            k ← k+1
+        FINTANTQUE
+        TANT QUE i <= n/2 FAIRE
+            tab[k] ← tab1[i]
+            i ← i+1
+            k ← k+1
+        FINTANTQUE
+        TANT QUE j <= n/2 FAIRE
+            tab[k] ← tab2[j]
+            j ← j+1
+            k ← k+1
+        FINTANTQUE
+    FIN SI
+FIN
+
+

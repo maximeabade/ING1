@@ -1,0 +1,55 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f398c4df0d1, pid=23597, tid=23614
+#
+# JRE version: Java(TM) SE Runtime Environment 18.9 (11.0.7+8) (build 11.0.7+8-LTS)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM 18.9 (11.0.7+8-LTS, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x40d1]  ImageStrings::find(Endian*, char const*, int*, unsigned int)+0x71
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P %E" (or dumping to /data/Cours/Semestre2/ProgJava/eclipse-workspace/LaTourInfernale/core.23597)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:34339 -javaagent:/home/eisti/eclipse/java-2020-03/eclipse/configuration/org.eclipse.osgi/217/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 --module-path=/data/Cours/Semestre2/ProgJava/eclipse-workspace/LaTourInfernale/bin:/data/Downloads/openjfx-11.0.2_linux-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.base.jar:/data/Downloads/openjfx-11.0.2_linux-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.controls.jar:/data/Downloads/openjfx-11.0.2_linux-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.fxml.jar:/data/Downloads/openjfx-11.0.2_linux-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.graphics.jar:/data/Downloads/openjfx-11.0.2_linux-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.media.jar:/data/Downloads/openjfx-11.0.2_linux-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.swing.jar:/data/Downloads/openjfx-11.0.2_linux-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.web.jar:/data/Downloads/openjfx-11.0.2_linux-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx-swt.jar -Djdk.module.main=LaTourInfernale LaTourInfernale/com.LaTourInfernale.Jeu
+
+Host: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz, 8 cores, 7G, Ubuntu 18.04.3 LTS
+Time: Thu May 28 19:20:54 2020 CEST elapsed time: 34465 seconds (0d 9h 34m 25s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f39881de800):  JavaThread "Signal Dispatcher" daemon [_thread_in_vm, id=23614, stack(0x00007f3956d30000,0x00007f3956e31000)]
+
+Stack: [0x00007f3956d30000,0x00007f3956e31000],  sp=0x00007f3956e2e060,  free space=1016k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x40d1]  ImageStrings::find(Endian*, char const*, int*, unsigned int)+0x71
+C  [libjimage.so+0x4dba]  ImageFileReader::find_location_index(char const*, unsigned long long*) const+0x3a
+C  [libjimage.so+0x52ba]  JIMAGE_FindResource+0xfa
+V  [libjvm.so+0x5d0c6e]  ClassPathImageEntry::open_stream(char const*, Thread*)+0x4e
+V  [libjvm.so+0x5d3a2f]  ClassLoader::load_class(Symbol*, bool, Thread*)+0x12f
+V  [libjvm.so+0xdd3855]  SystemDictionary::load_instance_class(Symbol*, Handle, Thread*)+0x4f5
+V  [libjvm.so+0xdd200a]  SystemDictionary::resolve_instance_class_or_null(Symbol*, Handle, Handle, Thread*)+0x93a
+V  [libjvm.so+0xdd4ae2]  SystemDictionary::resolve_or_fail(Symbol*, Handle, Handle, bool, Thread*)+0x52
+V  [libjvm.so+0x69018d]  ConstantPool::klass_at_impl(constantPoolHandle const&, int, bool, Thread*)+0xbd
+V  [libjvm.so+0x879a9c]  InterpreterRuntime::_new(JavaThread*, ConstantPool*, int)+0x6c
+j  jdk.internal.misc.Signal.dispatch(I)V+25 java.base@11.0.7
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x889419]  JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, Thread*)+0x3b9
+V  [libjvm.so+0x888145]  JavaCalls::call_static(JavaValue*, Klass*, Symbol*, Symbol*, JavaCallArguments*, Thread*)+0x115
+V  [libjvm.so+0xc3ef23]  signal_thread_entry(JavaThread*, Thread*)+0x2b3
+V  [libjvm.so+0xe0db4a]  JavaThread::thread_main_inner()+0x1fa
+V  [libjvm.so+0xe0deb1]  JavaThread::run()+0x351
+V  [libjvm.so+0xe0987a]  Thread::call_run()+0x13a
+V  [libjvm.so+0xc5160e]  thread_native_entry(Thread*)+0xee
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  jdk.internal.misc.Signal.dispatch(I)V+25 java.base@11.0.7
+v  ~StubRoutines::call_stub
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00007f397f13a140
+

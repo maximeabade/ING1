@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="380.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.LaTourInfernale.ControllerInfosJoueur">
+   <children>
+      <ImageView fitHeight="219.0" fitWidth="386.0" layoutY="-5.0">
+         <image>
+            <Image url="@cadreTexte.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" layoutX="7.0" layoutY="22.0" prefHeight="141.0" prefWidth="110.0">
+         <children>
+            <ImageView fitHeight="128.0" fitWidth="80.0" preserveRatio="true">
+               <image>
+                  <Image url="@hero_avant.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label fx:id="nomJoueur" style="-fx-text-fill: black;" text="NomJoueur">
+               <font>
+                  <Font name="BerenisADFPro-Regular" size="16.0" />
+               </font></Label>
+         </children>
+      </VBox>
+      <VBox layoutX="107.0" layoutY="7.0" prefHeight="156.0" prefWidth="273.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="36.0" fitWidth="52.0" preserveRatio="true">
+                     <image>
+                        <Image url="@coeur.png" />
+                     </image>
+                  </ImageView>
+                  <ProgressBar fx:id="VieProgress" prefHeight="20.0" prefWidth="141.0" progress="0.5" style="-fx-accent: red;">
+                     <HBox.margin>
+                        <Insets left="7.0" />
+                     </HBox.margin>
+                  </ProgressBar>
+                  <Label fx:id="VieLabel" prefHeight="25.0" prefWidth="80" text="Vie PV">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="BerenisADFPro-Regular" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="33.0" fitWidth="32.0" preserveRatio="true">
+                     <image>
+                        <Image url="@xp.png" />
+                     </image>
+                  </ImageView>
+                  <ProgressBar fx:id="XpProgress" prefHeight="8.0" prefWidth="141.0" progress="1.0" style="-fx-accent: green; -fx-min-height: 15;">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ProgressBar>
+                  <Label fx:id="XpLabel" prefHeight="25.0" prefWidth="75.0" text="Niveau 0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="BerenisADFPro-Regular" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="373.0">
+               <children>
+                  <ImageView fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@xpPoint.png" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="CENTER" prefHeight="25.0" prefWidth="112.0" style="-fx-text-fill: black;" text="Point Xp" fx:id="xpPointLabel">
+                     <HBox.margin>
+                        <Insets left="7.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="BerenisADFPro-Regular" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="13.0" prefWidth="273.0">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="33.0">
+                     <image>
+                        <Image url="@force.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="ForceLabel" contentDisplay="CENTER" prefHeight="15.0" prefWidth="46.0" style="-fx-text-fill: black;" text="Force">
+                     <HBox.margin>
+                        <Insets left="7.0" top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="BerenisADFPro-Regular" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="55.0" prefWidth="170.0">
+               <children>
+                  <ImageView fitHeight="55.0" fitWidth="46.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@argent.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label fx:id="argentJoueur" contentDisplay="CENTER" style="-fx-text-fill: black;" text="0  €">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="BerenisADFPro-Regular" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

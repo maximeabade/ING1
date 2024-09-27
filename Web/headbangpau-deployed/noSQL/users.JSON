@@ -1,0 +1,25 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "max",
+            "password": "max123",
+            "cart": [],
+            "isAdmin": true
+        },
+        {
+            "id": 2,
+            "username": "ehsan",
+            "password": "ehsan123",
+            "cart": [],
+            "isAdmin": false
+        },
+        {
+            "id": 3,
+            "username": "bde",
+            "password": "bde123",
+            "cart": [],
+            "isAdmin": false
+        }
+    ]
+}

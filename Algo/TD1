@@ -1,0 +1,293 @@
+TD1
+
+Exo 1: Minimum et maximum
+    PROCEDURE MIN&MAX
+    VAR:
+    n, min, max : entiers
+    DEBUT
+        Ecrire("Entrez un nombre entier correspondant au nombre de valeurs à saisir")
+        Lire(n)
+        Ecrire("Entrez une valeur")
+        Lire(min)
+        max <- min
+        POUR i ALLANT DE 1 A n FAIRE
+            Ecrire("Entrez une valeur")
+            Lire(n)
+            SI n < min ALORS
+                min <- n
+            SINON
+                SI n > max ALORS
+                    max <- n
+                FINSI
+            FINSI
+        FINPOUR
+        Ecrire("Le minimum est ", min, " et le maximum est ", max)
+    FINPROCEDURE
+
+Exo 2: Deviner un entier
+    Procédure GuessMe
+        VAR: 
+        nbADeviner : entier
+        nbEntré : entier
+        nbEssais : entier
+        DÉBUT:
+            nbEntré := -1
+            nbADeviner = Ent(rand() * 100)          // ceci genere un nombre reel compris entre 0 et 1, le multiplie par 100 et chope sa partie entiere
+            nbEssais := 0
+
+            TANTQUE (nbADeviner != nbEntré), FAIRE :
+                nbEssais := nbEssais + 1
+                Ecrire("Essayez de deviner!")
+                nbEntré := Lire(nbEntré)
+            FINTANTQUE
+
+            Ecrire ("Bravo, vous avez trouvé en %nbEssais" , nbEssais)
+        FIN
+
+
+Exo 3 : Recherche de chaînes dans un texte
+
+    FONCTION sousChaine(texte : chaine, compteur : entier, longueur : entier) : chaine
+        VAR:
+        i : entier
+        sousChaine : chaine
+        DÉBUT:
+            sousChaine := ""
+            POUR i DE 1 A longueur, FAIRE :
+                sousChaine := sousChaine + text[compteur + i]
+            FINPOUR
+            RENVOYER sousChaine
+        FIN
+
+    PROCEDURE Recherche
+        VAR:
+        texte : chaîne
+        mot : chaîne
+        compteur : entier
+        DÉBUT:
+            compteur := 0
+            Ecrire("Entrez le texte")
+            Lire(texte)
+            Ecrire("Entrez le mot à chercher")
+            Lire(mot)
+
+            TANTQUE (compteur < longueur(texte)), FAIRE :
+                SI (sousChaine(texte, compteur, longueur(mot)) = mot), FAIRE :
+                    Ecrire("Le mot ", mot, " est présent à la position ", compteur)
+                FINSI
+                compteur := compteur + 1
+            FINTANTQUE
+        FIN
+
+
+
+
+Exo 4: Polynômes
+    Procédure Polynôme
+        VAR :
+        degPoly : entier
+        facteur : réel
+        compteur : réel
+        monX : réel
+        résultat : réel
+        DÉBUT:
+            résultat := 0
+            Ecrire("Degré du polynome?")
+            Lire(degPoly)
+            Ecrire ("A quelle valeur l'appliquer?")
+            Lire(monX)
+            POUR(compteur allant de 0 à degPoly), FAIRE :
+                Ecrire("Quel est le facteur de degré ", compteur, " ?")
+                Lire(facteur)
+                résultat := résultat + facteur * monX^compteur
+            FINPOUR
+
+            Ecrire("Le résultat est ", résultat)
+        FIN
+
+Exo 5: Choix opérations mathématiques
+    FONCTION FACTORIELLE(n : entier) : entier
+        VAR:
+        compteur : entier
+        résultat : entier
+        DÉBUT:
+            résultat := 1
+            POUR(compteur allant de 1 à n), FAIRE :
+                résultat := résultat * compteur
+            FINPOUR
+            Ecrire("Le résultat est ", résultat)
+            Retourner résultat
+        FIN
+
+    FONCTION PGCD(a : entier, b : entier) : entier
+        VAR:
+        reste : entier
+        DÉBUT:
+            reste := a % b
+            TANTQUE (reste != 0), FAIRE :
+                a := b
+                b := reste
+                reste := a % b
+            FINTANTQUE
+            Ecrire("Le PGCD est ", b)
+            Retourner b
+        FIN
+
+
+    OU ALORS:
+
+    FONCTION PGCD(a : entier, b : entier) : entier
+        VAR:
+        pgcd : entier
+        compteur : entier
+        DÉBUT:
+            POUR(compteur allant de 1 à min(a,b)), FAIRE :
+                SI(Ent(a/compteur) = a/compteur ET Ent(b/compteur) = b/compteur), FAIRE :
+                    pgcd := compteur
+                FINSI
+            FINPOUR
+            Ecrire("Le PGCD est ", pgcd)
+            Retourner pgcd
+        FIN
+
+    PROCÉDURE SECOND_DEGRÉ(a : entier , b : entier , c : entier) : entier
+        VAR:
+        delta : entier
+        DÉBUT:
+            delta := b^2 - 4*a*c
+            SI (delta < 0), FAIRE :
+                Ecrire("Pas de solution réelle")
+            FINSI
+            SINON SI (delta = 0), FAIRE :
+                Ecrire("Une solution : ", -b/2*a)
+            FINSI
+            SINON :
+                Ecrire("Deux solutions : ", (-b + sqrt(delta))/2*a, " et ", (-b - sqrt(delta))/2*a)
+            FIN SINON
+        FIN
+
+
+    PROCÉDURE CHOIX
+        VAR:
+        choix : entier
+        a : entier
+        b : entier
+        c : entier
+        factorielle : entier
+        DÉBUT:
+            Ecrire("Quelle opération voulez-vous faire?")
+            Ecrire("1: Factorielle")
+            Ecrire("2: PGCD")
+            Ecrire("3: Equation du second degré")
+            Ecrire("4: Quitter")
+            TANTQUE(choix != 4), FAIRE :
+                Lire(choix)
+                SI (choix = 1), FAIRE :
+                    Ecrire("De quel nombre voulez-vous calculer la factorielle?")
+                    Lire(factorielle)
+                    FACTORIELLE(factorielle)
+                FINSI
+                SINON SI (choix = 2), FAIRE :
+                    Ecrire("Quels nombres voulez-vous comparer?")
+                    Lire(a)
+                    Lire(b)
+                    PGCD(a, b)
+                FINSI
+                SINON SI (choix = 3), FAIRE :
+                    Ecrire("Quels sont les coefficients de l'équation?")
+                    Lire(a)
+                    Lire(b)
+                    Lire(c)
+                    SECOND_DEGRÉ(a, b, c)
+                FINSI
+                SINON :
+                    Ecrire("Choix invalide")
+                FIN SINON
+            FINTANTQUE
+        FIN
+
+
+Exo 6 : Machine à café
+    ENREGISTREMENT Carte:
+        VAR:
+        code : entier
+        solde : réel
+    FINENREGISTREMENT
+
+    FONCTION LireCarteBancaire(prix : réel ) : entier
+        VAR:
+        carte : Carte
+        codeRentré : entier
+        DÉBUT:
+            Ecrire("Veuillez procéder au paiement")
+            Lire(carte.code)
+            Ecrire("Entre votre code PIN")
+            Lire(codeRentré)
+            SI (carte.code = codeRentré ET carte.solde > prix), FAIRE :
+                Ecrire("Paiement accepté")
+                retour := 1
+            FINSI
+            SINON :
+                Ecrire("Paiement refusé")
+                retour := 0
+            FIN SINON
+            Retourner retour
+        FIN
+
+
+    ENREGISTREMENT Boisson:
+        nom : chaîne
+        prix : réel
+    FINENREGISTREMENT
+
+
+    PROCÉDURE MACHINE_A_CAFE
+        VAR:
+        choixBoisson : entier
+        boisson : Boisson
+        DÉBUT:
+            Ecrire("Quelle choixBoisson voulez-vous?")
+            Ecrire("1: Café")
+            Ecrire("2: Thé")
+            Ecrire("3: Chocolat")
+            Ecrire("4: Quitter")
+            TANTQUE(choixBoisson != 4), FAIRE :
+                Lire(choixBoisson)
+                SI (choixBoisson = 1), FAIRE :
+                    Ecrire("Café")
+                    boisson := Café
+                    SI (LireCarteBancaire(boisson.prix) = 1), FAIRE :
+                        Ecrire("Café en préparation")
+                    FINSI
+                    SINON :
+                        Ecrire("Paiement refusé")
+                        choixBoisson := 4
+                    FINSINON
+                FINSI
+                SINON SI (choixBoisson = 2), FAIRE :
+                    Ecrire("Thé")
+                    boisson := Thé
+                    SI (LireCarteBancaire(boisson.prix) = 1), FAIRE :
+                        Ecrire("Café en préparation")
+                    FINSI
+                    SINON :
+                        Ecrire("Paiement refusé")
+                        choixBoisson := 4
+                    FINSINON
+                FINSI
+                SINON SI (choixBoisson = 3), FAIRE :
+                    Ecrire("Chocolat")
+                    boisson := Chocolat
+                    SI (LireCarteBancaire(boisson.prix) = 1), FAIRE :
+                        Ecrire("Café en préparation")
+                    FINSI
+                    SINON :
+                        Ecrire("Paiement refusé")
+                        choixBoisson := 4
+                    FINSINON
+                FINSI
+                SINON :
+                    Ecrire("Choix invalide")
+                FIN SINON
+            FINTANTQUE
+        FIN

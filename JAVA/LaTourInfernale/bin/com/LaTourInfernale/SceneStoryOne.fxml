@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Group fx:id="rootStory" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.LaTourInfernale.SceneStoryOneController">
+	<children>
+      <ImageView fitHeight="1007.0" fitWidth="1798.0">
+         <image>
+            <Image url="@foret.jpg" />
+         </image>
+      </ImageView>
+		<HBox alignment="CENTER" prefHeight="1000.0" prefWidth="1800.0">
+			<children>
+				<VBox alignment="CENTER" prefHeight="809.0" prefWidth="594.0">
+					<children>
+                  <HBox prefHeight="240.0" prefWidth="571.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@lightningGif.gif" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@lightningGif.gif" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@lightningGif.gif" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@lightningGif.gif" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+						<ImageView fitHeight="1800.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@king.png" />
+							</image>
+						</ImageView>
+						<Group>
+							<children>
+                        <ImageView fitHeight="161.0" fitWidth="335.0" layoutX="-123.0" layoutY="-45.0">
+                           <image>
+                              <Image url="@cadreTexte.jpg" />
+                           </image>
+                        </ImageView>
+								<Text layoutX="-102.0" layoutY="11.0" strokeWidth="0.0" text="Dans un royaume lointain, un roi mourut et laissa un héritier pour gouverner" wrappingWidth="294.1083984375">
+									<font>
+										<Font name="BerenisADFProSC-Regular" size="22.0" />
+									</font>
+								</Text>
+							</children>
+						</Group>
+					</children>
+				</VBox>
+				<VBox alignment="CENTER" prefHeight="793.0" prefWidth="598.0">
+					<children>
+                  <Label text="Nom de Joueur" textFill="#f2f0f0">
+                     <font>
+                        <Font name="BerenisADFProSC-Regular" size="30.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nomPlayer" alignment="CENTER" maxWidth="400.0" prefHeight="26.0" prefWidth="200.0" promptText="Entrer Nom de Joueur">
+                     <font>
+                        <Font name="BerenisADFProSC-Regular" size="18.0" />
+                     </font>
+                  </TextField>
+						<ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@crowned.png" />
+							</image>
+						</ImageView>
+						<ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@monsterStory.png" />
+							</image>
+						</ImageView>
+						<Group>
+							<children>
+                        <ImageView fitHeight="197.0" fitWidth="357.0" layoutX="-162.0" layoutY="-94.0">
+                           <image>
+                              <Image url="@cadreTexte.jpg" />
+                           </image>
+                        </ImageView>
+								<Text layoutX="-135.0" layoutY="-43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="À la mort du roi, un monstre vint voler la couronne et installa son royaume dans la Tour Infernale. L'héritier fut heureusement sauvé." textAlignment="CENTER" wrappingWidth="302.1083984375">
+									<font>
+										<Font name="BerenisADFProSC-Regular" size="22.0" />
+									</font>
+								</Text>
+							</children>
+						</Group>
+						<HBox alignment="CENTER" prefHeight="139.0" prefWidth="447.0">
+							<children>
+								<Button fx:id="goLobby" mnemonicParsing="false" onAction="#getPlayerNameLoadNextScene" prefHeight="53.0" prefWidth="315.0" text="Tenter de récupérer la couronne">
+                           <font>
+                              <Font name="BerenisADFPro-Regular" size="20.0" />
+                           </font></Button>
+							</children>
+						</HBox>
+					</children>
+				</VBox>
+			</children>
+		</HBox>
+	</children>
+</Group>

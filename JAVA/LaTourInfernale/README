@@ -1,0 +1,5 @@
+Pour executer le projet :
+
+1) Ouvrir le projet avec Eclipse
+2) Importez dans le build path du projet les .jar de javafx
+3) Run  

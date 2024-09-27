@@ -1,0 +1,74 @@
+Exo 1
+
+1/
+PROCÉDURE divisionEuclidienne(a,b : entier , q:entier(S) , r:entier(S))
+DÉBUT
+    q ← 0
+    r ← a
+    TANT QUE r ≥ b FAIRE
+        r ← r - b
+        q ← q + 1
+    FIN TANT QUE
+FINPROCÉDURE
+
+invariant : a = bq + r
+
+Initialisation : q=0 , r= a , a = b*0 + a VRAI
+Conservation bq' + r' = b(q+r) + (r-b) = bq + b + r - b = bq + r = a VRAI
+
+Terminaison: a = bq + r et 0<=r<b
+
+2/
+PROCÉDURE factorielle(q: entier(S))
+VARIABLES
+    i : entier
+    n : entier
+DÉBUT
+    q = 1
+    POUR i ← 2 À n FAIRE
+        q ← q * i
+    FINPOUR
+FINPROCÉDURE
+
+invariant : q = i!
+
+Initialisation : i = 2 ==> q = 2! = 2 VRAI
+
+Conservation : i'! = (i+1)! ; f' = f * (i+1) = i! * (i+1) = (i+1)!
+
+Terminaison: q = i!
+
+
+EXO2
+PROCÉDURE triBulle(tab : tableau d'entiers (E/S))
+VARIABLES
+    i : entier
+    j : entier
+    tmp : entier
+    l : entier
+DÉBUT:
+    l ← longueur(tab)
+    POUR i ← l À 1 FAIRE
+        POUR j ← 1 À i - 1 FAIRE
+            SI tab[j] > tab[j + 1] ALORS
+                tmp ← tab[j]
+                tab[j] ← tab[j + 1]
+                tab[j + 1] ← tmp
+            FIN SI
+        FINPOUR
+    FINPOUR
+FINPROCÉDURE
+
+longueur(A) = longeur(A')
+
+pour tout i € [1 , longueur(A') - 1], A'[i] <= A'[i+1]
+les valeurs sont les mêmes entre A et A'
+Invariant : pour tout k dans [1 , j] , tab[k] <= tab[j+1]
+
+Initialisation : j = 1 ==> tab[1] <= tab[2] VRAI
+
+Conservation : On suupose que pour tout k dans [1 , j - 1], tab[k]<=tab[j]
+si tab[j] > tab[j+1] ==> échange, donc tab[j]<=tab[j+1]
+sinon on ne change rien et tab[j]<=tab[j+1]
+    ==> VRAI
+Terminaison: pour tout k dans [1 , i-1] , tab[k]<=tab[i]

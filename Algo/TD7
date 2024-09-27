@@ -1,0 +1,158 @@
+Exo 1
+1/
+Fonction suiteFibo(n : entier) : entier
+DÉBUT
+    SI (n<=0) ALORS
+        retourner 0
+    FINSI
+    SINON SI (n=1) ALORS
+        retourner 1
+    FINSINONSI
+    SINON
+        retourner (suiteFibo(n-1) + suiteFibo(n-2))
+    FINSINON
+FINFONCTION
+Complexité : C(n) = 1 pour cas d'arrêt ou C(n) = C(n-1) + C(n-2) +2  = O(2**n)      //Complexite exponentielle, à éviter
+
+2/
+Procédure inverserTab(tab : tableau d'entiers, début : entier , fin : entier)
+VARIABLES:
+    tmp : entier
+DÉBUT
+    SI (début >= fin) ALORS
+        retourner tab
+    FINSI
+    SINON
+        tmp ← tab[début]
+        tab[début] ← tab[fin]
+        tab[fin] ← tmp
+        retourner inverserTab(tab, début+1, fin-1)
+    FINSINON
+FINPROCÉDURE
+
+3/
+Fonction RechercheNonTrié(tab : tableau d'entiers , i : entier , n : entier) : booléen
+DÉBUT
+    SI (i>taille(tab)) ALORS
+        retourner faux
+    FINSI
+    SINON SI (tab[i]=n) ALORS
+        retourner vrai
+    FINSINONSI
+    SINON
+        retourner RechercheNonTrié(tab, i+1, n)
+    FINSINON
+FINFONCTION
+C(n) = 1 ou C(n) = 3 + C(n-1) = O(n)
+
+
+4/
+Fonction RechercheTrié(tab : tableau d'entiers , début : entier, fin : entier , n : entier)
+VARIABLES
+    milieu : entier
+DÉBUT
+    SI (début = fin) ALORS
+        SI (tab[début] = n) ALORS
+            retourner début
+        FINSI
+        SINON
+            retourner 0
+        FINSINON
+    FINSI
+    milieu = (début + fin) / 2
+    SI (tab[milieu] < n) ALORS
+        retourner RechercheTrié(tab , milieu+1 , fin, n)
+    FINSI
+    SINON 
+        retourner RechercheTrié(tab , début , milieu, n)
+    FINSINON
+FINFONCTION
+COMPLEXITÉ : n est la taille du tableau 
+    C(n) = 1 ou 6 + C(n/2)
+    ici on divise par deux, donc on pose n = 2**k ==> C(n) = 6 + C(2**(k-1)) = ... = k*6 +1 et k = log2(n)
+    donc C(n) = log2(n)*6 + 1 = O(log2(n)) 
+
+
+Exo 2 (acc sont les accumulateurs)
+Fonction Fibo(n : entier) : entier
+DÉBUT
+    retourner Fibonacci(n,0,1)
+FINFONCTION
+
+Fonction Fibonacci(n : entier , acc1 : entier , acc2 : entier) : entier
+DÉBUT
+    SI (n=0) ALORS
+        retourner acc1
+    FINSI
+    SINON
+        retourner Fibonacci(n-1, acc2, acc1+acc2)
+    FINSINON
+FINFONCTION
+
+Complexité : si n = 0, C(n) = 1  (cas d'arrêt)
+             sinon C(n) = 3 + C(n-1)
+             C(n) = 3n + 1 = O(n)
+
+ 
+
+
+
+Exo 3
+1/
+2,8,7,1,3,5,6,4
+2,1,3,4,8,7,5,6
+2,1,3,4,5,6,8,7
+1,2,3,4,5,6,7,8
+
+2/ Prouver la procédure Partition à l'aide de l'invariant de boucle
+TriRapide(tab, 1 , 8 )
+    q = Partition(tab , 1 , 8) = 4
+    TriRapide(tab , 1 , 3 )
+        q = Partition(tab , 1 , 3) = 3
+        TriRapide(tab , 1 , 2)
+            ...
+TriRapide(tab , 5 , 8 ) ...
+
+
+/*************RELATION DE RÉCURENCE**************/
+
+INITIALISATION:
+   . x = A[r] OK
+    i = p-1
+    j = p
+   . pour tt k € [p , i] = [p,p-1] = NULL A[k]<=x OK
+   . pour tt k € [i+1 , j-1] = [p,p-1] = NULL A[k]>x OK
+
+HÉRÉDITÉ (conservation):
+    . x = A[r] OK toujours
+     i = p
+     j = p+1
+    . pour tt k € [p+1 , i] = [p+1,p] = NULL A[k]<=x OK tjrs
+    . pour tt k € [i+1 , j] = [p+1,p] = NULL A[k]>x OK tjrs
+TERMINAISON : 
+    En échangeant r et i+1, on s'assure que mon x est bien entr eles deux zones, donc à sa bonne position
+
+3/ 3 + 3(r-1-p) + 6(r-1-p) + 4 + 1 = O(n) avec n qui st la taille du tableau et qui devient de p à r donc tjrs O(n)
+/* BROUILLON COMPLEXITE DE TRI RAPIDE
+    permuter(A[i],A[j]) => Complexité = 3 affectations donc 3. 
+    Partition(tab , p , r) => Complexite ={ 1 affectation(pivot x)
+                                            1 affectation(i = p-1)
+                                            Boucle (de p a r-1) = |r-1-p|
+                                                1 comparaison + 1 affectation + 1 permuter(c = 3)
+                                            1 permuter => Complexite = 3} 
+                                            C(n) = 1 + 1 + (r-1-p) * [pire des cas: 5][meilleur des cas : 1] + 3 = O(n)
+                                        
+*/
+
+4/a On range tous les éléments du même côté du pivot 
+    Pire cas C(n) = 1 /*Cas d'arrêt*/ ou C(n) = 3{"si" , q-1 , q+1} + C(n-1){tout d'un côté} + C(0){rien de l'autre côté} + alpha*n{appels de Partition} = O(n**2) {car on appelle n fois Parititon quoi qu'il arrive donc n*n)
+
+
+
+4/b Partition quasi-équilibrée : elle range un nombre quasi-égal d'éléments des deux côtés du pivot
+    Meilleur cas C(n) = 1 /*Cas d'arrêt*/ ou C(n) = 3 + O(n) + 2*C(n/2){séparé en 2 ==> C(n/2) mais le fait des deux côtés, donc *2} + alpha*n = O(n.log2(n))
+
+
+4/c On range 9/10 des éléments d'un coté et 1/10 de l'autre
+C(n) = 1 ou C(n) = 3 + C(9n/10) + C(n/10) + alpha*n = O(n*log10/9(n))
+

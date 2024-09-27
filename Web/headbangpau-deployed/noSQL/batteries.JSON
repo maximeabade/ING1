@@ -1,0 +1,42 @@
+[
+    {
+        "id": "B1",
+        "Name": "PearlEXX705NBR",
+        "Image": "./img/batteries/PearlEXX705NBR.png",
+        "Details": "Gross Caisse, Tom10X07, Tom12X08, StandTom 14X14, caisse claire 14X5.5, livrée sans siège",
+        "Price": "1100",
+        "Stock": "5"
+    },
+    {
+        "id": "B2",
+        "Name": "Startone",
+        "Image": "./img/batteries/Startone.png",
+        "Details": "Grosse Caisse, Tom10X08, Tom12X09, StandTom 14X14, caisse claire 14X5.5, livrée avec siège",
+        "Price": "270",
+        "Stock": "5"
+    },
+    {
+        "id": "B3",
+        "Name": "YamahaRYDEEN",
+        "Image": "./img/batteries/YamahaRYDEEN.png",
+        "Details": "Grosse Caisse, Tom10X07, Tom12X08, StandTom 14X13, caisse claire 14X5.5, livrée sans siège",
+        "Price": "750",
+        "Stock": "5"
+    },
+    {
+        "id": "B4",
+        "Name": "Efnote 3 E-Drum",
+        "Image": "./img/batteries/efnote3.png",
+        "Details": "Grosse Caisse Aluminium, Tom10X3.5 (x2), Tom12X04, StandTom 14X14, caisse claire 14X5.5, livrée sans siège",
+        "Price": "2330",
+        "Stock": "5"
+    },
+    {
+        "id": "B5",
+        "Name": "Millenium Rookie E-Drum",
+        "Image": "./img/batteries/milleniumRookie.png",
+        "Details": "Caisse claire 07, Tom10X07 (x3), livrée sans siège",
+        "Price": "189",
+        "Stock": "5"
+    }  
+]

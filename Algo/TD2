@@ -1,0 +1,257 @@
+//ALGORITHME INVERSION TABLEAU
+
+Fonction InversionTableau (T: tableau de taille n; n: entier) : tableau[1...n] de entier
+VAR
+    tab_tmp : tableau de taille n;
+    i: entier
+DEBUT
+    tab_tmp := tableau[1...n]
+    POUR i DE 1 A n FAIRE
+        tab_tmp[i] := T[n-i+1]
+    FINPOUR
+    RETOURNER tab_tmp
+FINFONCTION
+
+
+OU ALORS
+
+Fonction InversionTableau (T: tableau de taille n; n: entier) : tableau[1...n] de entiers
+VAR
+    tmp1, tmp2 : entiers
+    i: entier
+DEBUT
+    POUR i DE 1 A n/2 FAIRE
+        tmp1 := T[i]
+        tmp2 := T[n-i+1]
+        T[i] := tmp2
+        T[n-i+1] := tmp1
+    FINPOUR
+    RETOURNER T
+FINFONCTION
+
+
+
+//ENREGISTREMENT NOMBRES COMPLEXES ET CALCUL DU MODULE
+
+ENREGISTREMENT COMPLEXE
+    partie_reelle: réel
+    partie_imaginaire: réel
+FINENREGISTREMENT
+
+PRÉCONDITION: On se munti de la fonction racine_carré(a:réel) : réel qui retourne la valeur qui mise au carré donne a ainsi que fonction pow(a:réel , b:entier) qui retourne a puissance b
+FONCTION Module (c: COMPLEXE) : réel
+VAR
+    module: réel
+DEBUT
+    module := racine_carré(
+        pow(
+            c.partie_reelle, 2
+        ) 
+        + 
+        pow(
+            c.partie_imaginaire,2
+        )
+    )
+    RETOURNER module
+FINFONCTION
+
+
+
+DÉBUT DU TD 
+
+
+EXO1 : TABLEAUX D'ENREGISTREMENTS
+
+1. 
+
+ENREGISTREMENT ÉTUDIANT
+    nom: chaîne de caractères
+    prénom: chaîne de caractères
+    moyenne: réel
+FINENREGISTREMENT
+
+2.
+a.
+
+FONCTION Moyenne (nbnotes: entier) : réel
+VAR
+    note: réel
+    i: entier
+    somme: réel
+    moyenne: réel
+DEBUT
+    somme := 0
+    POUR i DE 1 A nbnotes FAIRE
+        ECRIRE("Entrez la note n°", i)
+        somme := somme + lire(note)
+    FINPOUR
+    moyenne := somme / nbnotes
+    RETOURNER moyenne
+FINFONCTION
+
+b.
+Calcul moyenne étudiant par étudiant
+
+FONCTION MoyenneEtudiant (nbnotes: entier) : réel
+VAR
+    note: réel
+    i: entier
+    somme: réel
+    moyenne: réel
+DEBUT
+    MoyenneEtudiant := Moyenne(nbnotes)
+    RETOURNER MoyenneEtudiant
+FINFONCTION
+
+c.
+Affichage infos étudiant
+
+PROCÉDURE AffichageInfosEtudiant (nbnotes: entier)
+VAR
+    groupe: tableau[1,20] de ÉTUDIANT
+    etudiant: ÉTUDIANT
+    moyenne: réel
+    i: entier
+DEBUT
+    POUR i DE 1 A 20 FAIRE
+        ECRIRE("Entrez le nom de l'étudiant n°", i)
+        etudiant.nom := lire(chaîne de caractères)
+        ECRIRE("Entrez le prénom de l'étudiant n°", i)
+        etudiant.prénom := lire(chaîne de caractères)
+        moyenne := MoyenneEtudiant(nbnotes)
+        etudiant.moyenne := moyenne
+        groupe[i] := etudiant
+    FINPOUR
+    POUR i DE 1 A 20 FAIRE
+        ECRIRE("L'étudiant n°", i, " s'appelle ", groupe[i].nom, " ", groupe[i].prénom, " et a une moyenne de ", groupe[i].moyenne)
+    FINPOUR
+FINPROCÉDURE
+
+
+3. Avec Tri
+
+Procédure Classement (groupe[1,20] de ÉTUDIANT)
+VAR
+    i, j: entier
+    tmp: ÉTUDIANT_temporaire
+DEBUT
+    POUR i DE 1 A 20 FAIRE
+        POUR j DE 1 A 20 FAIRE
+            SI groupe[i].moyenne > groupe[j].moyenne ALORS
+                tmp := groupe[i]
+                groupe[i] := groupe[j]
+                groupe[j] := tmp
+                //QUESITON ICI: PEUT ON FAIRE CA DIRECTEMENT OU DOIT ON REGULARISER CHACUN DES ATTRIBUTS?
+            FINSI
+        FINPOUR
+    FINPOUR
+    POUR i de 1 A 20 FAIRE
+        ECRIRE("L'étudiant n°", i, " s'appelle ", groupe[i].nom, " ", groupe[i].prénom, " et a une moyenne de ", groupe[i].moyenne, " et est classé n°", i)
+    FINPOUR
+FINPROCÉDURE
+
+
+EXO 2 Un algorithme de tri : tri par comptage
+
+FONCTION TriParComptage (T: tableau de taille n; n: entier) : tableau[1..n] de entiers
+VAR
+    i, j: entier
+    compteur: entier
+    tab_tmp: tableau de taille n
+DEBUT
+    POUR i DE 1 A n FAIRE
+        compteur := 0
+        POUR j DE 1 A n FAIRE
+            SI T[j] < T[i] ALORS
+                compteur := compteur + 1
+            FINSI
+        FINPOUR
+        tab_tmp[compteur] := T[i]
+    FINPOUR
+    RETOURNER tab_tmp
+FINFONCTION
+
+EXO 3 UN AUTRE ALGORITHME DE TRI   **A FINIR**
+Tri par zone de valeurs
+
+J'ai besoin de:
+    - Une fonction qui permet de saisir un tableau de taille tabTaille
+    - Une fonction qui permute deux éléments de mon tableau
+    - Connaitre la taille de mon tableau en entrée
+    - Une fonction qui agrandit une zone => mon tableau initial est copié en tableau de tableauZone pour 0, 1, 2, et non triés
+    - si x=1 on accroit la zone des 1
+    - si x=2 on permute avec l'élement le plus à droite de la zone non triée et on accroit la zone des 2
+    - si x=0 on permute avec l'élément le plus à gauche de la zone des 1, on accroit la zone des 0 et on décale la zone des 1 
+    - Les zones sont découpées en un sous-tableau contenant les 0, un contenant les 1, un contenant les éléments non encore triés, et un contenant les 2
+
+
+2.
+
+FONCTION SaisieTableau() : tableau[1..tailleTableau] de entiers
+VAR
+    i: entier
+    tab: tableau[1..tailleTableau] de entiers
+    tailleTableau: entier
+DEBUT
+    Ecrire("Entrez la taille du tableau")
+    Lire(tailleTableau)
+    POUR i DE 1 A tailleTableau FAIRE
+        tab[i] := -1
+        Ecrire("Entrez l'élément n°", i, " du tableau")
+        TANTQUE((tab[i] != 0)&&(tab[i] != 1)&&(tab[i] != 2)) FAIRE
+            Ecrire("Entrez l'élément n°", i, " du tableau")
+            Lire(tab[i])
+        FINTANTQUE
+    FINPOUR
+    RETOURNER tab
+FINFONCTION
+
+3.
+FONCTION Permutation (tab: tableau[1,tailleTableau] de entiers; i,j :entiers ) : tableau[1,tailleTableau] de entiers
+VAR
+    tmp: entier
+DEBUT
+    tmp := tab[i]
+    tab[i] := tab[j]
+    tab[j] := tmp
+    RETOURNER tab
+FINFONCTION
+
+
+4.
+PROCÉDURE Affichage (tab: tableau[1,tailleTableau] de entiers)
+VAR
+    i: entier
+DEBUT
+    POUR i DE 1 A tailleTableau FAIRE
+        Ecrire(tab[i])
+    FINPOUR
+FINPROCÉDURE
+
+
+5.
+
+
+
+EXO 4 : Opérations simples sur les matrices     **A FINIR**
+
+1 : Calcul du produit d'une matrice et d'un vecteur
+
+FONCTION ProduitMatriceVecteur (matrice: tableau[1..nbLignes,1..nbColonnes] de entiers; vecteur: tableau[1..tailleVecteur] de entiers) : tableau[1..tailleVecteur] de entiers
+VAR
+    i, j: entier
+    produit: tableau[1..tailleVecteur] de entiers
+DEBUT
+    POUR i DE 1 A tailleVecteur FAIRE
+        produit[i] := 0
+        POUR j DE 1 A tailleVecteur FAIRE
+            produit[i] := produit[i] + matrice[i,j] * vecteur[j]
+        FINPOUR
+    FINPOUR
+    RETOURNER produit
+FINFONCTION
+
+2. Calcul du produit de deux matrices
+
+
+

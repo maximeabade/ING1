@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="389.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.LaTourInfernale.ControllerInfosJoueurCombat">
+   <children>
+      <ImageView fitHeight="264.0" fitWidth="389.0">
+         <image>
+            <Image url="@fondCombatJoueur.jpg" />
+         </image>
+      </ImageView>
+      <VBox layoutX="27.0" layoutY="55.0" prefHeight="115.0" prefWidth="47.0">
+         <children>
+            <ImageView fitHeight="52.0" fitWidth="42.0">
+               <image>
+                  <Image url="@coeur.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="44.0">
+               <image>
+                  <Image url="@force.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="42.0">
+               <image>
+                  <Image url="@bag.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <HBox layoutY="5.0" prefHeight="36.0" prefWidth="389.0">
+         <children>
+            <Label fx:id="nomJoueur" alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="390.0" text="Nom du joueur">
+               <font>
+                  <Font name="BerenisADFPro-Regular" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="82.0" layoutY="63.0" prefHeight="29.0" prefWidth="265.0">
+         <children>
+            <ProgressBar fx:id="VieProgressJoueur" prefHeight="27.0" prefWidth="126.0" progress="0.5" style="-fx-accent: red;" />
+            <Label fx:id="vieJ" alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" prefHeight="29.0" prefWidth="140.0" text="50 PV">
+               <font>
+                  <Font name="BerenisADFPro-Regular" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Label fx:id="jForce" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="113.0" prefHeight="29.0" prefWidth="120.0" text="Force">
+         <font>
+            <Font name="BerenisADFPro-Regular" size="20.0" />
+         </font>
+      </Label>
+      <HBox fx:id="sac" layoutX="99.0" layoutY="151.0" prefHeight="52.0" prefWidth="255.0">
+         <children>
+            <ImageView fitHeight="43.0" fitWidth="37.0">
+               <image>
+                  <Image url="@potionBasique.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="nPB" alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="38.0" text="x1">
+               <font>
+                  <Font name="BerenisADFPro-Regular" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="45.0" fitWidth="48.0">
+               <image>
+                  <Image url="@potionMagique.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="nPM" alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="38.0" text="x1">
+               <font>
+                  <Font name="BerenisADFPro-Regular" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="44.0" fitWidth="32.0">
+               <image>
+                  <Image url="@potionPoison.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="nPP" alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="38.0" text="x1">
+               <font>
+                  <Font name="BerenisADFPro-Regular" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox fx:id="sacEquipement" layoutX="94.0" layoutY="198.0" prefHeight="68.0" prefWidth="255.0" />
+   </children>
+</AnchorPane>

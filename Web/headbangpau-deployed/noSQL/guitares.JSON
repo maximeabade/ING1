@@ -1,0 +1,42 @@
+[
+    {
+        "id": "G1",
+        "Name": "Harley Benton",
+        "Image": "./img/guitares/HarleyBenton.png",
+        "Details": "Corps en peuplier, manche en érable, touche en Roseacer, 22 frettes, 2 micros double bobinage, cordes .010-.046",
+        "Price": "148",
+        "Stock": "5"
+    },
+    {
+        "id": "G2",
+        "Name": "Jackson JS22",
+        "Image": "./img/guitares/JacksonJS22.png",
+        "Details": "Corps en peuplier, manche en érable, touche en amarante, 24 frettes, 2 micros double bobinage",
+        "Price": "229",
+        "Stock": "5"
+    },
+    {
+        "id": "G3",
+        "Name": "Jackson JS32 King V",
+        "Image": "./img/guitares/JacksonJS32KingV.png",
+        "Details": "Corps en peuplier, manche en érable, touche en amarante, 24 frettes, 3 micros double bobinage, cordes .009-.042",
+        "Price": "359",
+        "Stock": "5"
+    },
+    {
+        "id": "G4",
+        "Name": "ESP E-II HORIZON-III FM RDB",
+        "Image": "./img/guitares/espHorizon.png",
+        "Details": "Corps en aulne, manche en érable, touche en ébène, 24 frettes, 2 micros double bobinage, cordes .009-.042",
+        "Price": "2320",
+        "Stock": "5"
+    },
+    {
+        "id": "G5",
+        "Name": "Harley Benton BS-20BK Rock Series",
+        "Image": "./img/guitares/harleyBentonBS20.png",
+        "Details": "Corps en tilleul, manche en érable canadien, touche en Roseacer, 24 frettes, 2 micros double bobinage, cordes .009-.042",
+        "Price": "130",
+        "Stock": "5"
+    }
+]

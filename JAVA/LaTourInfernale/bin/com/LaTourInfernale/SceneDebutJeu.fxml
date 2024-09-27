@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Group fx:id="rootGroup" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.LaTourInfernale.SceneDebutJeuController">
+   <children>
+      <ImageView fitHeight="1007.0" fitWidth="1821.0">
+         <image>
+            <Image url="@foret.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" prefHeight="1000.0" prefWidth="1800.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="259.0" prefWidth="1090.0">
+               <children>
+                  <ImageView fitHeight="136.0" fitWidth="328.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@towerStory.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="49.0" prefWidth="244.0" style="-fx-text-fill: white;" text="La Tour Infernale" textAlignment="CENTER" textOverrun="CLIP">
+                     <font>
+                        <Font name="BerenisADFProSC-Regular" size="34.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label style="-fx-text-fill: white;" text="Bienvenue Dans le Jeu: La Tour Infernale By 4TOne">
+                     <font>
+                        <Font name="BerenisADFProSC-Regular" size="34.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="267.0" prefWidth="1090.0">
+               <children>
+                  <Button id="CommencerPartie" fx:id="CommencerPartie" mnemonicParsing="false" onAction="#nextSceneTwo" opacity="0.81" prefHeight="52.0" prefWidth="368.0" text="Commencer la Partie" textAlignment="CENTER" textOverrun="CLIP">
+                     <font>
+                        <Font name="BerenisADFProSC-Regular" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="16.0" prefWidth="1799.0" style="-fx-text-fill: white;" text="RICHARD Tony, SAGLIO Théo, SOULAGE Tom, TRIFEL-MABICKA Guy" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Group>

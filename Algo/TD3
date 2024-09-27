@@ -1,0 +1,256 @@
+// 1 MANIPULATION DES PILES, FILES ET LISTES //
+
+1.1.a Inversion pile
+
+PROCÉDURE InversionPile (P : Pile) : (PileRetour : Pile)
+VAR:
+    PileRetour : Pile
+DÉBUT:
+    créerPile(PileRetour)
+    TANTQUE NON estVide(P), Faire:
+        Empiler(PileRetour, Dépiler(P))
+    FIN TANTQUE
+    Renvoyer PileRetour
+FIN PROCÉDURE
+
+1.1.b Inversion file
+
+PROCÉDURE InversionFile (F : File) : (FileRetour : File)
+VAR:
+    FileRetour  : File
+    PileTemporaire : Pile
+DÉBUT:
+    créerFile(FileRetour)
+    créerPile(PileTemporaire)
+    TANTQUE NON estVide(F), Faire:
+        Empiler(PileTemporaire, Défiler(F))
+    FIN TANTQUE
+    TANTQUE NON estVide(PileTemporaire), Faire:
+        Dépiler(PileTemporaire, Enfiler(FileRetour))
+    FIN TANTQUE
+    Renvoyer FileRetour
+FIN PROCÉDURE
+
+1.2 Calcul du nombre d'éléments d'une pile, file et liste
+
+a. FONCTION NombreElementsPile (P : Pile) : (NbElements : ENTIER)
+VAR:
+    NbElements : entier
+DÉBUT:
+    NbElements <- 0
+    TANTQUE NON estVide(P), FAIRE:
+        Dépiler(P)
+        NbElements <- NbElements + 1
+    FIN TANTQUE 
+    Renvoyer NbElements
+FINFONCTION
+
+b. FONCTION NombreElementsFile (F : File) : (NbElements : ENTIER)
+VAR:
+    NbElements : entier
+DÉBUT:
+    NbElements <- 0
+    TANTQUE NON estVide(F), FAIRE:
+        Défiler(F)
+        NbElements <- NbElements + 1
+    FIN TANTQUE
+    Renvoyer NbElements
+FINFONCTION
+
+c. FONCTION NombreElementsListe (L : Liste) : (NbElements : ENTIER)
+VAR:
+    NbElements : entier
+DÉBUT:
+    NbElements <- 0
+    TANTQUE NON estVide(L), FAIRE:
+        Supprimer(L)
+        NbElements <- NbElements + 1
+    FIN TANTQUE
+    Renvoyer NbElements
+FINFONCTION
+
+1.3 Insertion à la ième position d'une pile / file / liste 
+
+a. PROCÉDURE InsertionPile (P : Pile, i : ENTIER, E : élément)
+VAR:
+    PileTemporaire : Pile
+    j : ENTIER
+DÉBUT: 
+    créerPile(PileTemporaire)
+    j <- 0
+    TANTQUE j < i, FAIRE:
+        Empiler(PileTemporaire, Dépiler(P))
+        j <- j + 1
+    FIN TANTQUE
+    Empiler(P, E)
+    TANTQUE NON estVide(PileTemporaire), FAIRE:
+        Empiler(P, Dépiler(PileTemporaire))
+    FIN TANTQUE
+FIN PROCÉDURE
+
+
+b. PROCÉDURE InsertionFile (F : File, i : ENTIER, E : élément)
+VAR:
+    FileTemporaire : File
+    j : ENTIER
+DÉBUT:
+    créerFile(FileTemporaire)
+    j <- 0
+    TANTQUE j < i, FAIRE:
+        Enfiler(FileTemporaire, Défiler(F))
+        j <- j + 1
+    FIN TANTQUE
+    InversionFile(FileTemporaire)
+    InversionFile(F)
+    Enfiler(F, E)
+    InversionFile(F)
+    TANTQUE NON estVide(FileTemporaire), FAIRE:
+        Enfiler(F, Défiler(FileTemporaire))
+    FIN TANTQUE
+FIN PROCÉDURE
+
+
+c. PROCÉDURE InsertionListe (L : Liste, i : ENTIER, E : élément)
+VAR:
+    ListeTemporaire : Liste
+    j : ENTIER
+DÉBUT:
+    créerListe(ListeTemporaire)
+    j <- 0
+    TANTQUE j < i, FAIRE:
+        Ajouter(ListeTemporaire, L[j])
+        Supprimer(L)
+        j <- j + 1
+    FIN TANTQUE
+    Ajouter(L, E)
+    TANTQUE NON estVide(ListeTemporaire), FAIRE:
+        Ajouter(L, ListeTemporaire[0])
+        Supprimer(ListeTemporaire)
+    FIN TANTQUE
+FIN PROCÉDURE
+
+
+1.4 Suppression à la ième position d'une pile / file / liste
+
+a. PROCÉDURE SuppressionPile (P : Pile, i : ENTIER)
+VAR:
+    PileTemporaire : Pile
+    j : ENTIER
+DÉBUT:
+    créerPile(PileTemporaire)
+    j <- 0
+    TANTQUE j < i, FAIRE:
+        Empiler(PileTemporaire, Dépiler(P))
+        j <- j + 1
+    FIN TANTQUE
+    Dépiler(P)
+    TANTQUE NON estVide(PileTemporaire), FAIRE:
+        Empiler(P, Dépiler(PileTemporaire))
+    FIN TANTQUE
+FIN PROCÉDURE
+
+b. PROCÉDURE SuppressionFile (F : File, i : ENTIER)
+VAR:    
+    FileTemporaire : File
+    j : ENTIER
+DÉBUT:
+    créerFile(FileTemporaire)
+    j <- 0
+    TANTQUE j < i, FAIRE:
+        Enfiler(FileTemporaire, Défiler(F))
+        j <- j + 1
+    FIN TANTQUE
+    Défiler(F)
+    InversionFile(F)
+    InversionFile(FileTemporaire)
+    TANTQUE NON estVide(FileTemporaire), FAIRE:
+        Enfiler(F, Défiler(FileTemporaire))
+    FIN TANTQUE
+    InversionFile(F)
+FIN PROCÉDURE
+
+c. PROCÉDURE SuppressionListe (L : Liste, i : ENTIER)
+VAR:
+    ListeTemporaire : Liste
+    j : ENTIER
+DÉBUT:
+    créerListe(ListeTemporaire)
+    j <- 0
+    TANTQUE j < i, FAIRE:
+        Ajouter(ListeTemporaire, L[j])
+        Supprimer(L)
+        j <- j + 1
+    FIN TANTQUE
+    Supprimer(L)
+    TANTQUE NON estVide(ListeTemporaire), FAIRE:
+        Ajouter(L, ListeTemporaire[0])
+        Supprimer(ListeTemporaire)
+    FIN TANTQUE
+FIN PROCÉDURE
+
+
+1.4.d Suppression de toutes les occurences dans une liste
+
+PROCÉDURE SuppressionOccurencesListe (L : Liste, E : élément)
+VAR:
+    ListeTemporaire : Liste
+DÉBUT:
+    créerListe(ListeTemporaire)
+    TANTQUE NON estVide(L), FAIRE:
+        SI L[0] == E ALORS:
+            Supprimer(L)
+        SINON:
+            Ajouter(ListeTemporaire, L[0])
+            Supprimer(L)
+        FINSI
+    FIN TANTQUE
+    TANTQUE NON estVide(ListeTemporaire), FAIRE:
+        Ajouter(L, ListeTemporaire[0])
+        Supprimer(ListeTemporaire)
+    FIN TANTQUE
+FIN PROCÉDURE
+
+1.4.e Suppression de toutes les occurences dans une pile
+
+PROCÉDURE SuppressionOccurencesPile (P : Pile, E : élément)
+VAR:
+    PileTemporaire : Pile
+DÉBUT:
+    créerPile(PileTemporaire)
+    TANTQUE NON estVide(P), FAIRE:
+        SI sommet(P) == E ALORS:
+            Dépiler(P)
+        SINON:
+            Empiler(PileTemporaire, Dépiler(P))
+        FINSI
+    FIN TANTQUE
+    TANTQUE NON estVide(PileTemporaire), FAIRE:
+        Empiler(P, Dépiler(PileTemporaire))
+    FIN TANTQUE
+FIN PROCÉDURE
+
+1.4.f Suppression de toutes les occurences dans une file
+
+PROCÉDURE SuppressionOccurencesFile (F : File, E : élément)
+VAR:
+    FileTemporaire : File
+DÉBUT:
+    créerFile(FileTemporaire)
+    TANTQUE NON estVide(F), FAIRE:
+        SI premier(F) == E ALORS:
+            Défiler(F)
+        SINON:
+            Enfiler(FileTemporaire, Défiler(F))
+        FINSI
+    FIN TANTQUE
+    InversionFile(F)
+    InversionFile(FileTemporaire)
+    TANTQUE NON estVide(FileTemporaire), FAIRE:
+        Enfiler(F, Défiler(FileTemporaire))
+    FIN TANTQUE
+    InversionFile(F)
+FIN PROCÉDURE
+
+
+
+
